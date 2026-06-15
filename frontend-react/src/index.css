@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════
+   DocuMind — Dual-Identity Design System
+   ═══════════════════════════════════════════════
+   🌙 Neural Midnight  — cyberpunk/neon/glass
+   🌅 Warm Sunset      — creamy/coral/organic
+   ═══════════════════════════════════════════════ */
+
+/* ── Custom Properties ── */
+:root {
+  /* Shared */
+  --dm-transition: 500ms;
+}
+
+/* ── Base ── */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  transition: background var(--dm-transition), color var(--dm-transition);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* ═══════════════════════════
+   Scrollbar — Dark
+   ═══════════════════════════ */
+.theme-dark ::-webkit-scrollbar,
+.theme-dark::-webkit-scrollbar {
+  width: 5px;
+}
+.theme-dark ::-webkit-scrollbar-track { background: transparent; }
+.theme-dark ::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.25);
+  border-radius: 10px;
+}
+.theme-dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.45);
+}
+
+/* ═══════════════════════════
+   Scrollbar — Light
+   ═══════════════════════════ */
+.theme-light ::-webkit-scrollbar,
+.theme-light::-webkit-scrollbar {
+  width: 5px;
+}
+.theme-light ::-webkit-scrollbar-track { background: transparent; }
+.theme-light ::-webkit-scrollbar-thumb {
+  background: rgba(217, 119, 87, 0.25);
+  border-radius: 10px;
+}
+.theme-light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 119, 87, 0.45);
+}
+
+/* ═══════════════════════════════════════
+   🌙 NEURAL MIDNIGHT — dark theme
+   ═══════════════════════════════════════ */
+
+/* Glow Text */
+.theme-dark .glow-text {
+  text-shadow: 0 0 20px rgba(129, 140, 248, 0.4),
+               0 0 40px rgba(129, 140, 248, 0.15);
+}
+
+/* Neural Grid Background (dots) */
+.theme-dark .themed-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.06) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Glass Card */
+.theme-dark .glass-card {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+}
+
+/* Neon separator */
+.theme-dark .themed-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(99, 102, 241, 0.5),
+    rgba(34, 211, 238, 0.3),
+    transparent
+  );
+}
+
+/* Top bar accent */
+.theme-dark .themed-topline {
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+}
+
+/* ═══════════════════════════════════════
+   🌅 WARM SUNSET — light theme
+   ═══════════════════════════════════════ */
+
+/* Warm glow text */
+.theme-light .glow-text {
+  text-shadow: none;
+  background: linear-gradient(135deg, #b45309, #dc2626, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Organic grid */
+.theme-light .themed-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(234, 88, 12, 0.08) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Warm solid card */
+.theme-light .glass-card {
+  background: #ffffff;
+  border: 1px solid rgba(234, 88, 12, 0.18);
+  box-shadow: 0 2px 16px rgba(234, 88, 12, 0.08), 0 1px 3px rgba(0,0,0,0.04);
+}
+
+/* Warm separator */
+.theme-light .themed-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(234, 88, 12, 0.45),
+    rgba(14, 165, 133, 0.35),
+    transparent
+  );
+}
+
+/* Top bar warm accent */
+.theme-light .themed-topline {
+  background: linear-gradient(90deg, transparent, rgba(234, 88, 12, 0.5), rgba(220, 38, 38, 0.4), transparent);
+}
+
+/* ═══════════════════════════════════════
+   Shared Animations
+   ═══════════════════════════════════════ */
+
+/* Fade-in-up */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scale-in */
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-scale-in {
+  animation: scale-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(2deg); }
+  66% { transform: translateY(6px) rotate(-1deg); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-delay { animation: float 8s ease-in-out infinite; animation-delay: -3s; }
+
+/* Pulse ring (mic) */
+@keyframes pulse-ring-dark {
+  0% { box-shadow: 0 0 0 0 rgba(251, 113, 133, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(251, 113, 133, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(251, 113, 133, 0); }
+}
+@keyframes pulse-ring-light {
+  0% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(234, 88, 12, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0); }
+}
+.theme-dark .animate-pulse-ring { animation: pulse-ring-dark 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.theme-light .animate-pulse-ring { animation: pulse-ring-light 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* Shimmer (upload) */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.theme-dark .animate-shimmer {
+  background: linear-gradient(90deg, rgba(99,102,241,0.05) 25%, rgba(99,102,241,0.12) 50%, rgba(99,102,241,0.05) 75%);
+  background-size: 200% 100%; animation: shimmer 2s ease-in-out infinite;
+}
+.theme-light .animate-shimmer {
+  background: linear-gradient(90deg, rgba(234,88,12,0.05) 25%, rgba(234,88,12,0.15) 50%, rgba(234,88,12,0.05) 75%);
+  background-size: 200% 100%; animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Typing dots */
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-6px); opacity: 1; }
+}
+.typing-dot { animation: typing-bounce 1.4s ease-in-out infinite; }
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+/* Glow border (inputs) */
+.glow-border {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.theme-dark .glow-border:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15), 0 0 20px rgba(99, 102, 241, 0.08);
+}
+.theme-light .glow-border:focus {
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1), 0 0 16px rgba(234, 88, 12, 0.06);
+}

@@ -1,0 +1,36 @@
+# --- web API ---
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic-settings
+
+# --- database ---
+sqlalchemy[asyncio]
+asyncpg
+pgvector
+
+# --- redis ---
+redis
+
+# --- LLM + agent ---
+google-generativeai
+langchain-google-genai
+langgraph
+langchain-core
+
+# --- documents / OCR ---
+pypdf
+pytesseract
+pdf2image
+Pillow
+
+# --- voice ---
+faster-whisper
+gTTS
+
+# --- observability ---
+langfuse
+
+# --- utils ---
+python-dotenv
+numpy
