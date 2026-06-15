@@ -7,6 +7,8 @@ DocuMind is a production-grade AI platform that transforms documents (PDFs, scan
 The frontend is styled using a custom dual-identity design system: **Neural Midnight** (a rich cyber-neon dark mode) and **Warm Sunset** (a highly readable, warm-toned high-contrast light mode).
 
 ---
+<img width="1917" height="960" alt="image" src="https://github.com/user-attachments/assets/94a552ba-7d79-4008-aecf-fb86aed2499b" />
+
 
 ## 🚀 Key Features
 
